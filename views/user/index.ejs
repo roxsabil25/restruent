@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj Food's - Modern Branches</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 font-sans" x-data="{ open: false }">
+
+    <div x-show="open" 
+         x-transition:enter="transition opacity-ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition opacity-ease-in duration-300"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         @click="open = false"
+         class="fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+
+    <aside :class="open ? 'translate-x-0' : '-translate-x-full'" 
+           class="fixed top-0 left-0 w-64 h-full bg-slate-900 text-white transition-transform duration-300 ease-in-out z-50 shadow-2xl">
+        
+        <div class="p-6 flex justify-between items-center border-b border-slate-700">
+            <span class="text-xl font-bold text-orange-500">Raj Food's</span>
+            <button @click="open = false" class="text-2xl hover:text-red-500 transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <nav class="mt-8 px-4">
+            <ul class="space-y-4">
+                <li><a href="/" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-orange-500 transition-all"><i class="fa-solid fa-house"></i> <span>Home</span></a></li>
+                <li><a href="/menu" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-orange-500 transition-all"><i class="fa-solid fa-utensils"></i> <span>Menu</span></a></li>
+                <li><a href="/" class="flex items-center space-x-3 p-3 rounded-lg bg-orange-600 shadow-lg"><i class="fa-solid fa-location-dot"></i> <span>Branches</span></a></li>
+                <li><a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-orange-500 transition-all"><i class="fa-solid fa-phone"></i> <span>Contact</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <header class="bg-white shadow-md sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <button @click="open = true" class="text-2xl text-gray-700 hover:text-orange-600 transition-colors focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <h1 class="text-2xl font-bold text-slate-800">Raj <span class="text-orange-600">Food's</span></h1>
+            </div>
+            
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8 font-medium text-gray-600">
+                    <li><a href="/" class="hover:text-orange-600 transition-colors">Home</a></li>
+                    <li><a href="/menu" class="hover:text-orange-600 transition-colors">Menu</a></li>
+                    <li><a href="/" class="text-orange-600">Branches</a></li>
+                    <li><a href="#" class="hover:text-orange-600 transition-colors">Contact</a></li>
+                </ul>
+            </nav>
+
+            <button class="bg-orange-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-orange-700 transition-all shadow-md"><i class="fa-solid fa-cart-arrow-down"></i></button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-extrabold text-slate-800 mb-4">Select a Branches</h2>
+            <div class="h-1.5 w-24 bg-orange-500 mx-auto rounded-full"></div>
+            <p class="text-gray-500 mt-4">Visit your nearest Raj Food's outlet for the best experience.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
+                <a href="#">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">Dhaka Branch</h3>
+                <p class="text-gray-500 mb-4"><i class="fa-solid fa-map-pin mr-2 text-orange-500"></i>123 Main Street, Dhaka City</p>
+                <p class="text-slate-700 font-medium mb-6"><i class="fa-solid fa-phone mr-2 text-orange-500"></i>+880 123-456789</p>
+               </a>
+            </div>
+
+            <div class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
+                
+                <a href="#">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">Naogaon Branch</h3>
+                <p class="text-gray-500 mb-4"><i class="fa-solid fa-map-pin mr-2 text-orange-500"></i>456 Elm Street, Naogaon Sadar</p>
+                <p class="text-slate-700 font-medium mb-6"><i class="fa-solid fa-phone mr-2 text-orange-500"></i>+880 987-654321</p>
+                </a>
+               
+            </div>
+
+            <div class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
+                <a href="#">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">Bogura Branch</h3>
+                <p class="text-gray-500 mb-4"><i class="fa-solid fa-map-pin mr-2 text-orange-500"></i>789 Oak Street, Bogura Town</p>
+                <p class="text-slate-700 font-medium mb-6"><i class="fa-solid fa-phone mr-2 text-orange-500"></i>+880 555-123456</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
