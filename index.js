@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-const PORT = 3000;
+const port = process.env.PORT || 3000;
 
 
 // middleware
@@ -33,6 +33,6 @@ app.get('/healthz', (req, res) => {
 });
 
 // server start
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Server running http://localhost:${port}`);
 });
